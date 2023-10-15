@@ -16,17 +16,19 @@
    - **Program**: powershell.exe
    - **Arguments**:
 ```powershell
--ExecutionPolicy Bypass -Command "$wsa = 'WsaClient.exe';
-$command = 'adb connect 127.0.0.1:58526';
-if ((Get-Command -Name $wsa -ErrorAction SilentlyContinue))
-{
-Write-Host 'Lütfen Windows Subsystem for Android™ başlatılıyor...';
-Start-Process -FilePath $wsa -ArgumentList '/launch wsa://com.android.system';
- Write-Host 'ADB için bekleniyor...';
-do { $output = Invoke-Expression -Command $command 2>&1;
-if ($output -match 'cannot connect') { Write-Host 'Hata: ' + $output; Start-Sleep -Seconds 5; } }
- while ($output -match 'cannot connect'); Write-Host 'adb:'$output; }
-else { Write-Host 'Windows Subsystem for Android™ başlatılamıyor. Lütfen Windows Subsystem for Android™'ın yüklü olduğundan emin olun.'; }"
+-ExecutionPolicy Bypass -Command
+"$wsa = 'WsaClient.exe'; $command = 'adb connect 127.0.0.1:58526';
+ if ((Get-Command -Name $wsa -ErrorAction SilentlyContinue)) {
+Write-Host 'Please wait initializing Windows Subsystem for Android™...';
+ Start-Process -FilePath $wsa -ArgumentList '/launch wsa://com.android.system';
+Write-Host 'Waiting for ADB...';
+ do { $output = Invoke-Expression -Command $command 2>&1;
+ if ($output -match 'cannot connect') {
+Write-Host 'Error:'$output; Start-Sleep -Seconds 5; }
+} while ($output -match 'cannot connect');
+ Write-Host 'adb:'$output; } else {
+ Write-Host 'Unable to start Subsystem for Android™. Make sure Subsystem for Android™ is installed.';
+ }"
 ```
 5. Devamı
    - **Working directory**: C:\ <br>
