@@ -34,5 +34,5 @@ Write-Host 'Error:'$output; Start-Sleep -Seconds 5; }
    - **Working directory**: C:\ <br>
 6. Bu bilgileri girdikten sonra "OK" düğmesine basın.
 7. "Apply" ve ardından "OK" düğmesine basın.
-8. Son olarak, projenizin üzerine sağ tıklayın ve "External Tools" bölümünden çalıştırabilirsiniz.
+8. Son olarak, projenizin üzerine sağ tıklayın ve "External Tools" seçeneğinde yer alan toplu komutlarınızdan oluşan özel aracınızı çalıştırabilirsiniz.
 Bu şekilde, Windows Subsystem for Android'i başlatırken aynı zamanda ADB'yi bağlamış olursunuz.
